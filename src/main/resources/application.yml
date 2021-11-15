@@ -1,0 +1,23 @@
+micronaut:
+  application:
+    name: micronautGrpcDemo
+server:
+  cors:
+    enabled: true
+datasources:
+  default:
+    url: ${APP_URL:`jdbc:postgresql://localhost:5432/demo`}
+    username: ${APP_USERNAME:postgres}
+    password: ${APP_PASSWORD:paula@123}
+    driverClassName: org.postgresql.Driver
+---
+jpa:
+  default:
+    packages-to-scan:
+      - 'com.deviot.adapters.outbound.persistence.entities'
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+        format_sql: true
